@@ -28,4 +28,13 @@ class APILoginController extends Controller
 		}
 		return response()->json(compact('token'));
 	}
+
+	public function logout()
+	{
+		JWTAuth::invalidate();
+		return response([
+			'status' => 'success',
+			'msg' => 'Logged out Successfully.'
+		], 200);
+	}
 }
